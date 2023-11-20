@@ -50,6 +50,7 @@ app.get("/webhook", (req, res) => {
 webhook.on(WebhookEvent.MESSAGE_RECEIVED, recievedMessage => {
     console.log('Received a message from ODA, processing message before sending to WhatsApp. *****************>');
     console.log(recievedMessage.messagePayload.text);
+    console.log(recievedMessage);
 
     axios({
         method: "POST",
