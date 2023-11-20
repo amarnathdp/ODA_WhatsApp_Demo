@@ -26,9 +26,7 @@ const webhook = new WebhookClient({
 webhook
     .on(WebhookEvent.ERROR, err => console.log('Ansh webhook Error:', err.message))
     .on(WebhookEvent.MESSAGE_SENT, message => console.log('Ansh Message to chatbot:', message));
-app.post('/bot/message', webhook.receiver((message)=>{
-    console.log(message);
-}));
+app.post('/bot/message', webhook.receiver()); // receive bot messages
 
 
 app.listen(process.env.PORT || 5000, () => {
