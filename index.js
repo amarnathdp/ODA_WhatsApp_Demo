@@ -35,14 +35,9 @@ app.listen(process.env.PORT || 5000, () => {
 
 //to verify the callback url from cloud api side
 app.get("/webhook", (req, res) => {
-     console.log(req);
-    console.log(req,query);
     let mode = req.query["hub.mode"];
-    console.log(mode);
     let challange = req.query["hub.challenge"];
-    console.log(challange);
     let token = req.query["hub.verify_token"];
-    console.log(token);
     if (mode && token) {
         if (mode === "subscribe" && token === mytoken) {
             res.status(200).send(challange);
