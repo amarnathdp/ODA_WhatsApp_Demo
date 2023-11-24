@@ -89,11 +89,11 @@ app.post("/webhook", (req, res) => { //i want some
             // console.log("User name of the sender-->" + userName);
             // Amar Sending Message from Whats app to ODA
             const MessageModel = webhook.MessageModel();
-            // const message = {
-            //     userId: 'anonymous',
-            //     profile: {firstName: userName, lastName:from},
-            //     messagePayload: MessageModel.textConversationMessage(msg_body)
-            // };
+            const message = {
+                userId: 'anonymous',
+                profile: {firstName: userName, lastName:from},
+                messagePayload: MessageModel.textConversationMessage(msg_body)
+            };
             console.log("Message before sending to ODA is ------>" + message);
             webhook.send(message)
             res.sendStatus(200);
