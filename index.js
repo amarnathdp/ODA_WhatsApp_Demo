@@ -86,7 +86,7 @@ app.post("/webhook", (req, res) => { //i want some
             // console.log("Amar i am inside details -------------------------------------->");
             // console.log("phone number " + phon_no_id);
             // console.log("from " + from);
-            // console.log("Message from sender is --> " + msg_body);
+            console.log("Message from sender is --> " + msg_body);
             // console.log("User name of the sender-->" + userName);
             // Amar Sending Message from Whats app to ODA
             const MessageModel = webhook.MessageModel();
