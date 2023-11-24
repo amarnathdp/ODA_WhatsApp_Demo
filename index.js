@@ -72,7 +72,7 @@ app.post("/webhook", (req, res) => { //i want some
     let body_param = req.body;
     // console.log(JSON.stringify(body_param, null, 2));
     if (body_param.object) {
-        console.log("Amar i am inside body");
+        // console.log("Amar i am inside body");
         if (body_param.entry &&
             body_param.entry[0].changes &&
             body_param.entry[0].changes[0].value.messages &&
@@ -89,12 +89,12 @@ app.post("/webhook", (req, res) => { //i want some
             console.log("User name of the sender-->" + userName);
             // Amar Sending Message from Whats app to ODA
             const MessageModel = webhook.MessageModel();
-            const message = {
-                userId: 'anonymous',
-                profile: {firstName: userName, lastName:from},
-                messagePayload: MessageModel.textConversationMessage(msg_body)
-            };
-            console.log("Amar your Message before sending to ODA is ------>" + message);
+            // const message = {
+            //     userId: 'anonymous',
+            //     profile: {firstName: userName, lastName:from},
+            //     messagePayload: MessageModel.textConversationMessage(msg_body)
+            // };
+            console.log("Message before sending to ODA is ------>" + message);
             webhook.send(message)
             res.sendStatus(200);
         } else {
